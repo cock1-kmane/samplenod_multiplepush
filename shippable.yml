@@ -40,3 +40,5 @@ integrations:
       type: quay.io
     - integrationName: shiphitchcock1-hub
       type: docker
+    - integrationName: ship-docker
+      type: docker
