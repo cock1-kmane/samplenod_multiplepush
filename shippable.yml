@@ -3,7 +3,7 @@ language: node_js
 # Version number
 node_js:
   - 0.10
-  - 0.12
+#  - 0.12
   #- 4.2.3
   #- iojs-v1
   #- iojs-v2
@@ -26,12 +26,12 @@ build:
     - ls -al 
 
   post_ci:
-    - docker build -t=shiphitchcock1/pipeline:$BRANCH.$BUILD_NUMBER .
-    - docker push shiphitchcock1/pipeline:$BRANCH.$BUILD_NUMBER
+    - docker build -t=shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER .
+    - docker push shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER
     #- docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
     #- docker push shiphitchcock1/nod_multiplepush:pushtest
     
 integrations:
   hub:
-    - integrationName: shiphitchcock1-hub
+    - integrationName: ship-docker
       type: docker    
