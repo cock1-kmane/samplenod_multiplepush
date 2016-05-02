@@ -11,13 +11,13 @@ node_js:
  # - 5.0
 
 build:
-#  pre_ci:
- #   - docker build -t=shiphitchcock1/nod_multiplepush:buildtest .
+  pre_ci:
+    - docker build -t=shiphitchcock1/nod_multiplepush:tag2-m .
 
   pre_ci_boot:
-      image_name: drydock/u12nodall
-      image_tag: prod
-      pull: true
+      image_name: shiphitchcock1/nod_multiplepush
+      image_tag: tag2-m
+      pull: false
       options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
@@ -26,12 +26,12 @@ build:
     - ls -al 
 
   post_ci:
-    - docker build -t=shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER .
-    - docker push shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER
+    #- docker build -t=shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER .
+    - docker push shiphitchcock1/nod_multiplepush:tag2-m
     #- docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
     #- docker push shiphitchcock1/nod_multiplepush:pushtest
     
 integrations:
   hub:
-    - integrationName: ship-docker
+    - integrationName: shiphitchcock1-hub
       type: docker      
