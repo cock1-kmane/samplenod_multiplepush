@@ -27,7 +27,7 @@ build:
 
   post_ci:
     #- docker build -t=shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER .
-    - docker push shiphitchcock1/nod_multiplepush:tag2-m
+    - docker push shiphitchcock1/nod_multiplepush:$BRANCH.$BUILD_NUMBER
     #- docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
     #- docker push shiphitchcock1/nod_multiplepush:pushtest
     
