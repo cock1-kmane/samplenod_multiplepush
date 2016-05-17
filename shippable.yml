@@ -10,6 +10,9 @@ node_js:
   #- iojs-v3
  # - 5.0
 
+env:
+  - FOO=FIZZ
+  
 build:
   #pre_ci:
    # - docker build -t=shiphitchcock1/nod_multiplepush:tag2-m .
@@ -21,9 +24,10 @@ build:
       options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
-    - node --version  
-    - ps -eax
-    - ls -al 
+    #- node --version  
+    #- ps -eax
+    #- ls -al 
+    - echo "$FOO"
 
   post_ci:
     #- docker build -t=shippabledocker/sample_node_pvt:$BRANCH.$BUILD_NUMBER .
